@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import { business, seo } from "@/content/site";
-import { siteUrl, hasProductionUrl } from "@/lib/siteUrl";
+import { siteOrigin, siteUrl, hasProductionUrl } from "@/lib/siteUrl";
 import "./globals.css";
 
 // Self-hosted variable fonts (SIL Open Font License) — no calls to Google.
@@ -20,14 +20,15 @@ const instrument = localFont({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
+  // Origin only: Next.js adds the sub-folder (basePath) to file-based images itself.
+  metadataBase: new URL(siteOrigin),
   title: seo.title,
   description: seo.description,
-  alternates: { canonical: "/" },
+  alternates: { canonical: `${siteUrl}/` },
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "/",
+    url: `${siteUrl}/`,
     siteName: business.name,
     title: seo.title,
     description: seo.description,

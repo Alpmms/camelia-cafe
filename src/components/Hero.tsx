@@ -36,8 +36,9 @@ export function Hero() {
             id="hero-heading"
             className="mt-7 text-[clamp(2.7rem,5.8vw,5.2rem)] leading-[0.98] tracking-[-0.015em] text-cream"
           >
-            {hero.headline.split(/(?<=\.)\s+/).map((line) => (
+            {hero.headline.split(/(?<=\.)\s+/).map((line, i) => (
               <span key={line} className="block">
+                {i > 0 && " "}
                 {line}
               </span>
             ))}

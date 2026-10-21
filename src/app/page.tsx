@@ -17,7 +17,7 @@ function JsonLd() {
     name: business.name,
     url: siteUrl,
     telephone: business.phone.tel,
-    image: `${siteUrl}/opengraph-image`,
+    image: `${siteUrl}/opengraph-image.png`,
     address: {
       "@type": "PostalAddress",
       streetAddress: a.street,

@@ -31,6 +31,8 @@ jobs:
         env:
           # Project sites live at https://<user>.github.io/<repo>/
           NEXT_PUBLIC_BASE_PATH: /${{ github.event.repository.name }}
+          # Absolute links (e.g. the social share image) point to the Pages address.
+          NEXT_PUBLIC_PREVIEW_URL: https://${{ github.repository_owner }}.github.io
           # Leave unset for a preview (site stays noindex). Set to the real domain for launch.
           # NEXT_PUBLIC_SITE_URL: https://www.example.com
       - run: touch out/.nojekyll
